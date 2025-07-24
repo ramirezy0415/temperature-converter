@@ -1,10 +1,22 @@
+/**
+ * Converting a given temperature from Fahrenheit to Celcius.
+ *
+ * @param {number} temperature_fahrenheit - Temperature in Fahrenheit
+ * @returns {number} Result of converting temperature from Fahrenheit to Celcius
+ */
 function convertToCelsius(temperature_fahrenheit) {
   celcius = (temperature_fahrenheit - 32) * (5 / 9);
   return celcius;
 }
 
+/**
+ * Generating a description for a given temperature in terms of celcius.
+ *
+ * @param {number} temperature_fahrenheit - Temperature in Fahrenheit
+ * @returns {string} String description of the temperature in celcius and what the temperature will feel like.
+ */
 function describeFahrenheit(temperature_fahrenheit) {
-  let temperature_celcius = convertToCelsius(temperature_fahrenheit);
+  const temperature_celcius = convertToCelsius(temperature_fahrenheit);
   let description;
   if (temperature_celcius < 0) {
     description = "very cold";
@@ -18,16 +30,13 @@ function describeFahrenheit(temperature_fahrenheit) {
     description = "very hot";
   }
 
-  return `${temperature_celcius}ºC, is ${description}`;
+  return `${temperature_fahrenheit} degrees Farenheit is ${temperature_celcius} in degrees Celcius which is ${description}`;
 }
 
+// Prompting the user to provide a temperature in Fahrenheit and returning a description of the temperature in terms of Celcius.
 let temperature_fahrenheit = prompt(
-  "Please provide a temperature in Fahrenheit"
+  "Please provide a temperature in Fahrenheit."
 );
-function display(temperature_fahrenheit) {
-  let result = describeFahrenheit(temperature_fahrenheit);
-  let output = `${temperature_fahrenheit}ºF, also ${result}`;
-  document.getElementById("display_result").innerHTML = output;
-}
 
-display(temperature_fahrenheit);
+const description = describeFahrenheit(temperature_fahrenheit);
+alert(description);
